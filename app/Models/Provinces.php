@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Province extends Model
+class Provinces extends Model
 {
+    protected $table = 'provinces';
 
-    protected $hidden = [
+    protected $fillable = [
         'name',
     ];
 }

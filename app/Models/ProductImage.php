@@ -6,9 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class ProductImage extends Model
 {
-    protected $hidden = [
+    protected $table = 'product_images';
+
+    protected $fillable = [
         'image',
         'product_id',
-
     ];
 }
