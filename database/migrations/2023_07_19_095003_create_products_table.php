@@ -15,8 +15,9 @@ return new class () extends Migration
             $table->string('sku');
             $table->string('description');
             $table->string('stock');
-            $table->string('original_price');
-            $table->string('selling_price');
+            $table->double('original_price');
+            $table->double('selling_price');
+            $table->string('image');
             $table->timestamps();
         });
     }

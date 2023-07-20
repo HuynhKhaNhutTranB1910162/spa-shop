@@ -10,8 +10,21 @@ class Order extends Model
 
     protected $fillable = [
         'product_id',
+        'user_id',
         'amount',
         'total',
         'quantity',
+        'status',
+        'notes',
     ];
+
+    public function product(): belongsTo
+    {
+        return $this->belongsTo(Product::class);
+    }
+
+    public function user(): belongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
 }

@@ -15,4 +15,9 @@ class Service extends Model
         'selling_price',
         'image',
     ];
+
+    public function servicePackages(): BelongsToMany
+    {
+        return $this->belongsToMany(ServicePackage::class, 'service_service_packages', 'service_package_id','service_id');
+    }
 }

@@ -4,18 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Ward extends Model
+class Province extends Model
 {
-    protected $table = 'wards';
+    protected $table = 'provinces';
 
     protected $fillable = [
         'name',
-        'district_id',
     ];
 
-    public function district()
+    public function districts(): hasMany
     {
-        return $this->belongsTo(District::class);
+        return $this->hasMany(District::class);
     }
 
     public function addresses(): hasMany
