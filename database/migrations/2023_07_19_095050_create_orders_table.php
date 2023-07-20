@@ -12,7 +12,7 @@ return new class () extends Migration
             $table->id();
             $table->integer('product_id');
             $table->string('amount');
-            $table->interger('user_id');
+            $table->integer('user_id');
             $table->string('total');
             $table->integer('quantity');
             $table->string('status');
