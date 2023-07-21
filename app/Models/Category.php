@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
@@ -15,5 +17,10 @@ class Category extends Model
     public function products(): hasMany
     {
         return $this->hasMany(Product::class);
+    }
+
+    public static function getCategoryById(string $id): Model|Collection|Builder|array|null
+    {
+        return Category::query()->findOrFail($id);
     }
 }
