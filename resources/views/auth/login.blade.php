@@ -108,7 +108,6 @@
                                 @enderror
                             </div>
                         </div>
-                        <br>
                         <div class="row mb-3">
                             <label for="password" class="block mt-4 text-sm">{{ __('Password') }}</label>
 
@@ -122,8 +121,6 @@
                                 @enderror
                             </div>
                         </div>
-
-                        <br>
                         <div class="row mb-3">
                             <div class="col-md-6 offset-md-4">
                                 <div class="form-check">

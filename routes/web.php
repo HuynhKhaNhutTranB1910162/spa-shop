@@ -33,6 +33,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::middleware(['auth', 'isAdmin'])->group(function (){
 
     Route::get('/dashboard',[HomeController::class,'index'])->name('dashboard');
+
     Route::get('/categories',[CategoryController::class, 'index'])->name('categories');
     Route::get('/create-categories',[CategoryController::class, 'create'])->name('categories.create');
     Route::post('/store-categories',[CategoryController::class, 'store'])->name('categories.store');

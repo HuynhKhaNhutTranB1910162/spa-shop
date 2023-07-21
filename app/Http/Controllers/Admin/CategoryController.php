@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\CategoryRequest;
 use App\Models\Category;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class CategoryController extends Controller
@@ -20,7 +19,7 @@ class CategoryController extends Controller
         return view('admin.categories.index', compact('categories'));
     }
 
-    public function create()
+    public function create(): View
     {
 
         return view('admin.categories.create');
@@ -55,7 +54,7 @@ class CategoryController extends Controller
 
         return redirect('categories')->with('status', 'Category updated successfully');
     }
-    public function detroy(string $id)
+    public function detroy(string $id): RedirectResponse
     {
         $category = Category::getCategoryById($id);
 
