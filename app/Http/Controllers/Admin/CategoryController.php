@@ -54,7 +54,7 @@ class CategoryController extends Controller
 
         return redirect('categories')->with('status', 'Category updated successfully');
     }
-    public function detroy(string $id): RedirectResponse
+    public function destroy(string $id): RedirectResponse
     {
         $category = Category::getCategoryById($id);
 
