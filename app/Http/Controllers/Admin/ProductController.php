@@ -18,7 +18,7 @@ class ProductController extends Controller
 {
     use ImageTrait;
 
-    public int $itemPerPage = 1;
+    public int $itemPerPage = 10;
 
     public function index(): View
     {
@@ -66,7 +66,9 @@ class ProductController extends Controller
             }
         }
 
-        return redirect('products')->with('status','them thanh cong');
+        toastr()->success('them thanh cong');
+
+        return redirect('products');
     }
 
     public function edit(string $id): View

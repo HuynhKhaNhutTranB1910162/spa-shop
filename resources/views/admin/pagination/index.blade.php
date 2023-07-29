@@ -2,16 +2,15 @@
     <div
         class="grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t dark:border-gray-700 bg-gray-50 sm:grid-cols-9 dark:text-gray-400 dark:bg-gray-800"
     >
-                <span class="flex items-center col-span-3">
-                  Showing {{ $paginator->firstItem() }}-{{ $paginator->lastItem() }} of {{ $paginator->total() }}
-                </span>
+        <span class="flex items-center col-span-3">
+            Showing {{ $paginator->firstItem() }}-{{ $paginator->lastItem() }} of {{ $paginator->total() }}
+         </span>
         <span class="col-span-2"></span>
-        <!-- Pagination -->
         <span class="flex col-span-4 mt-2 sm:mt-auto sm:justify-end">
                   <nav aria-label="Table navigation">
                     <ul class="inline-flex items-center">
                          @if ($paginator->onFirstPage())
-                        <li  aria-disabled="true" aria-label="@lang('pagination.previous')">
+                            <li  aria-disabled="true" aria-label="@lang('pagination.previous')">
                         <a
                             class="px-3 py-1 rounded-md rounded-l-lg focus:outline-none focus:shadow-outline-purple"
                             aria-label="Previous"
@@ -50,32 +49,30 @@
                         </a>
                       </li>
                         @endif
-                            @foreach ($elements as $element)
-
-                                @if (is_string($element))
-                                    <li class="page-item disabled" aria-disabled="true">
+                        @foreach ($elements as $element)
+                            @if (is_string($element))
+                                <li class="page-item disabled" aria-disabled="true">
                                         <button class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">
                                         {{ $element }}
                                         </button>
                                     </li>
-                                @endif
-                                @if (is_array($element))
-                                    @foreach ($element as $page => $url)
-                                        @if ($page == $paginator->currentPage())
-                                            <li class="page-item active" aria-current="page">
+                            @endif
+                            @if (is_array($element))
+                                @foreach ($element as $page => $url)
+                                    @if ($page == $paginator->currentPage())
+                                        <li class="page-item active" aria-current="page">
                                                 <button class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple">
                                                     {{ $page }}
                                                 </button>
                                             </li>
-                                        @else
-                                            <li class="page-item"><a class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple" href="{{ $url }}">{{ $page }}</a></li>
-                                        @endif
-                                    @endforeach
-                                @endif
-                            @endforeach
-
-                             @if ($paginator->hasMorePages())
-                    <li>
+                                    @else
+                                        <li class="page-item"><a class="px-3 py-1 rounded-md focus:outline-none focus:shadow-outline-purple" href="{{ $url }}">{{ $page }}</a></li>
+                                    @endif
+                                @endforeach
+                            @endif
+                        @endforeach
+                        @if ($paginator->hasMorePages())
+                            <li>
                         <a
                             class="px-3 py-1 rounded-md rounded-r-lg focus:outline-none focus:shadow-outline-purple"
                             aria-label="Next"
@@ -94,12 +91,8 @@
                           </svg>
                         </a>
                       </li>
-
-{{--                                <li class="page-item">--}}
-{{--                            <a class="page-link" href="{{ $paginator->nextPageUrl() }}" rel="next" aria-label="@lang('pagination.next')">&rsaquo;</a>--}}
-{{--                        </li>--}}
-                            @else
-                                 <li class="page-item disabled" aria-disabled="true" aria-label="@lang('pagination.next')">
+                        @else
+                            <li class="page-item disabled" aria-disabled="true" aria-label="@lang('pagination.next')">
                         <a
                             class="px-3 py-1 rounded-md rounded-r-lg focus:outline-none focus:shadow-outline-purple"
                             aria-label="Next"
@@ -117,7 +110,7 @@
                           </svg>
                         </a>
                       </li>
-                            @endif
+                        @endif
 
                     </ul>
                   </nav>

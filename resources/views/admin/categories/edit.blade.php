@@ -1,7 +1,8 @@
 @extends('admin.layouts.app')
-@section('title', 'Sua danh muc')
-@section('content')
 
+@section('title', 'Sua danh muc')
+
+@section('content')
     <main class="h-full pb-16 overflow-y-auto">
         <div class="container px-6 mx-auto grid">
 
@@ -20,8 +21,8 @@
                         <input name="name" value="{{ $categories->name }}" type="text" class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input" placeholder="Thêm tên danh mục" >
                         @error('name')
                         <span class="text-danger" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                             <strong>{{ $message }}</strong>
+                        </span>
                         @enderror
                     </label>
                     <br>

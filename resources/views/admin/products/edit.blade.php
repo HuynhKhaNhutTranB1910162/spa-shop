@@ -106,9 +106,8 @@
                         <div class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
                             <img class="object-cover w-full h-full rounded-full" src="{{ asset('storage/' . $product->image) }}" loading="lazy" alt="{{ $product->name }}">
                             <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"></div>
-                            <span><a href="" class="text-red-600 text-xs">Xoa</a></span>
+                            <span><a href="" class="text-red-600 text-xs" >Xoa</a></span>
                         </div>
-                        {{--                        {{ route('image.delete' , ['image' => $product->image]) }}--}}
                     </label>
                     <label class="block mt-4 text-sm">
                         <span class="text-gray-700 dark:text-gray-400">
@@ -136,3 +135,5 @@
     </main>
 
 @endsection
+
+

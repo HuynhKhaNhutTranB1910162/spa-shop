@@ -10,7 +10,7 @@ use Illuminate\View\View;
 
 class CategoryController extends Controller
 {
-    public int $itemPerPage = 1;
+    public int $itemPerPage = 5;
 
     public function index(): View
     {
@@ -32,6 +32,7 @@ class CategoryController extends Controller
         Category::query()->create([
                 'name' => $data['name'],
             ]);
+
         return redirect('categories')->with('status','them thanh cong');
     }
 

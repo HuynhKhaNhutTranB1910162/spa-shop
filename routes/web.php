@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\HomeController;
+use App\Http\Controllers\Admin\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,9 +28,9 @@ Route::get('/', function () {
 //
 //Route::get('/dasboard',function (){ return view('admin.layouts.app');});
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware(['auth', 'verified']);
 
 Route::middleware(['auth', 'isAdmin'])->group(function (){
 
@@ -49,4 +50,10 @@ Route::middleware(['auth', 'isAdmin'])->group(function (){
     Route::put('/update-products/{id}',[ProductController::class, 'update'])->name('products.update');
     Route::get('/delete-products/{id}',[ProductController::class, 'destroy'])->name('products.delete');
 
+    Route::get('/users',[UserController::class, 'index'])->name('users');
+    Route::get('/create-users',[UserController::class, 'create'])->name('users.create');
+    Route::post('/store-users',[UserController::class, 'store'])->name('users.store');
+    Route::get('/edit-users/{id}',[UserController::class, 'edit'])->name('users.edit');
+    Route::put('/update-users/{id}',[UserController::class, 'update'])->name('users.update');
+    Route::get('/delete-users/{id}',[UserController::class, 'destroy'])->name('users.delete');
 });

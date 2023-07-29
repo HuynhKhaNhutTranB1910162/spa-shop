@@ -24,6 +24,27 @@
     ></script>
     <script src="{{asset('admin/assets/js/charts-lines.js')}}" defer></script>
     <script src="{{asset('admin/assets/js/charts-pie.js')}}" defer></script>
+
+    <script>
+
+        function previewFile(input){
+            let file = $("input[type=file]").get(0).files[0];
+            if(file){
+                let reader = new FileReader();
+                reader.onload = function (){
+                    $("#previewImg").attr('src', reader.result);
+                    $("#previewBox").css('display', 'block');
+                }
+                $(".form-file-group").css('display', 'none');
+                reader.readAsDataURL(file);
+            }
+        }
+        function removePreview(){
+            $("#previewImg").attr('src',"");
+            $("#previewBox").css('display', 'none');
+            $(".form-file-group").css('display', 'block');
+        }
+    </script>
 </head>
 <body>
 <div
@@ -318,6 +339,8 @@
         @yield('content')
     </div>
 </div>
+
+@yield('scripts')
 </body>
 </html>
 
