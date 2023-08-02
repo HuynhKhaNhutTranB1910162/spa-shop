@@ -15,7 +15,6 @@ class UpdateProductRequest extends FormRequest
             'description' => ['required', 'string'],
             'category_id'=> ['required', 'numeric'],
             'image' => ['max:4096', 'image'],
-            'product_image.*'=>['nullable', 'image', 'max:4096'],
             'original_price' => ['required', 'numeric', 'min:0'],
             'selling_price' => ['required', 'numeric', 'min:0'],
         ];

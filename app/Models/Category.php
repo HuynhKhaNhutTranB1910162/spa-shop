@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Category extends Model
 {
@@ -14,7 +15,7 @@ class Category extends Model
         'name',
     ];
 
-    public function products(): hasMany
+    public function products(): HasMany
     {
         return $this->hasMany(Product::class);
     }

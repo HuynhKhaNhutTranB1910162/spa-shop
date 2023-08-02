@@ -13,6 +13,7 @@ use App\Models\Category;
 use App\Models\ProductImage;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
+use League\CommonMark\Extension\CommonMark\Node\Inline\Strong;
 
 class ProductController extends Controller
 {
@@ -52,21 +53,7 @@ class ProductController extends Controller
             'selling_price' => $data['selling_price'],
         ]);
 
-        if (isset($data['product_image'])) {
-            $images = $data['product_image'];
-
-            foreach ($images as $image) {
-                $fileName = uniqid() . '.' . $image->getClientOriginalExtension();
-                $image->storeAs('images/', $fileName);
-
-                ProductImage::query()->create([
-                    'product_id' => $product->id,
-                    'image' => 'images/' . $fileName,
-                ]);
-            }
-        }
-
-        toastr()->success('them thanh cong');
+        toastr()->success('Thêm mới sản phẩm thành công');
 
         return redirect('products');
     }
@@ -80,13 +67,23 @@ class ProductController extends Controller
         return view('admin.products.edit', compact('product','categories'));
     }
 
-    public function update(UpdateProductRequest $request,string $id): RedirectResponse
+    public function update(UpdateProductRequest $request, string $id): RedirectResponse
     {
         $data = $request->validated();
 
         $product = Product::getProductById($id);
 
-        $data['image'] = $this->uploadImage($request, 'image', 'images');
+        if (! $request->hasFile('image')) {
+            $data['image'] = $product->image;
+        }
+
+        if ($request->hasFile('image')) {
+            $oldImage = 'storage/' . $product->image;
+
+            $this->deleteImage($oldImage);
+
+            $data['image'] = $this->uploadImage($request, 'image', 'images');
+        }
 
         $product->query()->update([
             'name' => $data['name'],
@@ -99,31 +96,21 @@ class ProductController extends Controller
             'selling_price' => $data['selling_price'],
         ]);
 
-        if (isset($data['product_image'])) {
-            $images = $data['product_image'];
+        toastr()->success('Cập nhật sản phẩm ' . $product->name . ' thành công');
 
-            foreach ($images as $image) {
-                $fileName = uniqid() . '.' . $image->getClientOriginalExtension();
-                $image->storeAs('images/', $fileName);
-
-                ProductImage::query()->update([
-                    'product_id' => $product->id,
-                    'image' => 'images/' . $fileName,
-                ]);
-            }
-        }
-
-        return redirect('products')->with('status', 'product deleted successfully');
+        return redirect('products');
     }
 
     public function destroy(string $id): RedirectResponse
     {
         $product = Product::getProductById($id);
 
+        $image = 'storage/' . $product->image;
+
+        $this->deleteImage($image);
+
         $product->delete();
 
         return redirect('products')->with('status', 'Category deleted successfully');
     }
-
-
 }

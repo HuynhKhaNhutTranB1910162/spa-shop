@@ -55,5 +55,6 @@ Route::middleware(['auth', 'isAdmin'])->group(function (){
     Route::post('/store-users',[UserController::class, 'store'])->name('users.store');
     Route::get('/edit-users/{id}',[UserController::class, 'edit'])->name('users.edit');
     Route::put('/update-users/{id}',[UserController::class, 'update'])->name('users.update');
+    Route::put('/update-users-password/{id}',[UserController::class, 'updatePassword'])->name('users.update-password');
     Route::get('/delete-users/{id}',[UserController::class, 'destroy'])->name('users.delete');
 });

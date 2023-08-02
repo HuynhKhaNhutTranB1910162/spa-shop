@@ -1,5 +1,5 @@
 @extends('admin.layouts.app')
-@section('title', 'Users')
+@section('title', 'Người dùng')
 @section('content')
     <main class="h-full pb-16 overflow-y-auto">
         <div class="container grid px-6 mx-auto">
@@ -9,14 +9,14 @@
                 <a
                     class="justify-between px-6 py-3 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
                     href="{{ route('users.create') }}">
-                    Create User
-                    <span class="" aria-hidden="true">+</span>
+                    Thêm mới người dùng
+                    <span>+</span>
                 </a>
             </div>
             <br>
 
             <h4 class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300">
-                Table with actions
+                Danh sách người dùng
             </h4>
             <div class="w-full overflow-hidden rounded-lg shadow-xs">
                 <div class="w-full overflow-x-auto">
@@ -24,11 +24,11 @@
                         <thead>
                         <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
                             <th class="px-4 py-3">ID</th>
-                            <th class="px-4 py-3">Information</th>
+                            <th class="px-4 py-3">Tên người dùng</th>
                             <th class="px-4 py-3">Email</th>
-                            <th class="px-4 py-3">Phone</th>
-                            <th class="px-4 py-3">Date</th>
-                            <th class="px-4 py-3">Actions</th>
+                            <th class="px-4 py-3">Số điện thoại</th>
+                            <th class="px-4 py-3">Ngày thêm</th>
+                            <th class="px-4 py-3">Hành động</th>
                         </tr>
                         </thead>
                         @foreach($users as $user)
@@ -66,7 +66,7 @@
                                     <div class="flex items-center text-sm">
                                         <div>
                                             <p class="">
-                                                {{ $user->created_at }}
+                                                {{ $user->created_at->diffForHumans() }}
                                             </p>
                                         </div>
                                     </div>
