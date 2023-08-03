@@ -10,7 +10,7 @@ use Illuminate\View\View;
 
 class CategoryController extends Controller
 {
-    public int $itemPerPage = 1;
+    public int $itemPerPage = 5;
 
     public function index(): View
     {
@@ -29,10 +29,12 @@ class CategoryController extends Controller
     {
         $data = $request->validated();
 
-        Category::query()->create([
+        $category =Category::query()->create([
                 'name' => $data['name'],
             ]);
-        return redirect('categories')->with('status','them thanh cong');
+        toastr()->success('Thêm mới danh mục thành công');
+
+        return redirect('categories');
     }
 
     public function edit(string $id): View
@@ -46,11 +48,12 @@ class CategoryController extends Controller
     {
         $data = $request->validated();
 
-        $categories = Category::getCategoryById($id);
+        $category = Category::getCategoryById($id);
 
-        $categories->update([
+        $category->update([
             'name' => $data['name'],
         ]);
+        toastr()->success('Cập nhật danh mục ' . $category->name  . ' thành công');
 
         return redirect('categories')->with('status', 'Category updated successfully');
     }
@@ -58,7 +61,15 @@ class CategoryController extends Controller
     {
         $category = Category::getCategoryById($id);
 
+        if ($category->products->count() > 0) {
+            toastr()->warning('Vui lòng xóa các sản có trong danh mục này trước');
+
+            return redirect('categories');
+        }
+
         $category->delete();
+
+        toastr()->success('Xóa danh mục ' . $category->name  . ' thành công');
 
         return redirect('categories')->with('status', 'Category deleted successfully');
     }

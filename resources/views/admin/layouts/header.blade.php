@@ -111,9 +111,6 @@
                 </button>
                 <template x-if="isNotificationsMenuOpen">
                     <ul
-                        {{--                                x-transition:leave="transition ease-in duration-150"--}}
-                        {{--                                x-transition:leave-start="opacity-100"--}}
-                        {{--                                x-transition:leave-end="opacity-0"--}}
                         @click.away="closeNotificationsMenu"
                         @keydown.escape="closeNotificationsMenu"
                         class="absolute right-0 w-56 p-2 mt-2 space-y-2 text-gray-600 bg-white border border-gray-100 rounded-md shadow-md dark:text-gray-300 dark:border-gray-700 dark:bg-gray-700"
@@ -173,9 +170,6 @@
                 </button>
                 <template x-if="isProfileMenuOpen">
                     <ul
-                        {{--                                x-transition:leave="transition ease-in duration-150"--}}
-                        {{--                                x-transition:leave-start="opacity-100"--}}
-                        {{--                                x-transition:leave-end="opacity-0"--}}
                         @click.away="closeProfileMenu"
                         @keydown.escape="closeProfileMenu"
                         class="absolute right-0 w-56 p-2 mt-2 space-y-2 text-gray-600 bg-white border border-gray-100 rounded-md shadow-md dark:border-gray-700 dark:text-gray-300 dark:bg-gray-700"
@@ -249,7 +243,7 @@
                                     ></path>
                                 </svg>
                                 <span>
-                                    Logout
+                                    Đăng xuất
                                 </span>
                             </a>
                         </li>
