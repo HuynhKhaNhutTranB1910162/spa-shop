@@ -9,7 +9,7 @@ class CategoryRequest extends FormRequest
     public function rules(): array|string
     {
         return [
-            'name' => ['required','string','max:32']
+            'name' => ['required','string','max:32', 'unique:categories']
         ];
     }
 }

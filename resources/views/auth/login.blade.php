@@ -9,7 +9,7 @@
                 <img
                     aria-hidden="true"
                     class="object-cover w-full h-full dark:hidden"
-                    src="admin/assets/img/login.jpg"
+                    src="admin/assets/img/login-office.jpeg"
                     alt="Office"/>
                 <img
                     aria-hidden="true"

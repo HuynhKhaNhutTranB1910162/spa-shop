@@ -57,7 +57,7 @@
                         <span class="text-gray-700 dark:text-gray-400">
                           Số lượng sản phẩm
                         </span>
-                        <input name="stock" value="{{old('stock')}}" class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input" placeholder="Thêm số lượng sản phẩm" >
+                        <input type="number" name="stock" value="{{ old('stock') }}" class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input" placeholder="Thêm số lượng sản phẩm" >
 
                         @error('stock')
                         <span class="text-xs text-red-600" role="alert">
@@ -69,7 +69,7 @@
                         <span class="text-gray-700 dark:text-gray-400">
                           Giá
                         </span>
-                        <input name="original_price" value="{{ old('original_price') }}" class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input" placeholder="Thêm giá sản phẩm" >
+                        <input type="number" name="original_price" value="{{ old('original_price') }}" class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input" placeholder="Thêm giá sản phẩm" >
 
                         @error('original_price')
                         <span class="text-xs text-red-600" role="alert">
@@ -81,7 +81,7 @@
                         <span class="text-gray-700 dark:text-gray-400">
                           Giá sale
                         </span>
-                        <input name="selling_price" value="{{old('selling_price')}}" class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input" placeholder="Thêm giá sản phẩm" >
+                        <input type="number" name="selling_price" value="{{old('selling_price')}}" class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input" placeholder="Thêm giá sản phẩm" >
 
                         @error('selling_price')
                         <span class="text-xs text-red-600" role="alert">
@@ -91,7 +91,7 @@
                     </label>
                     <label class="block mt-4 text-sm">
                         <span class="text-gray-700 dark:text-gray-400">
-                          Anh dai dien san pham
+                          Ảnh đại diện
                         </span>
                         <input type="file" name="image" class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input" placeholder="Thêm giá sản phẩm" >
 
@@ -102,24 +102,12 @@
                         @enderror
                     </label>
                     <label class="block mt-4 text-sm">
-                        <span class="text-gray-700 dark:text-gray-400">
-                          Anh phu san pham
-                        </span>
-                        <input type="file" accept="image/*" name="product_image[]" multiple class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input" placeholder="Thêm giá sản phẩm" >
-
-                        @error('product_image.*')
-                        <span class="text-xs text-red-600" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
-                    </label>
-                    <label class="block mt-4 text-sm">
                         <span class="text-gray-700 dark:text-gray-400">Mô tả</span>
-                        <textarea name="description" value="{{ old('description') }}" class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-textarea focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray" rows="3" placeholder="Enter some long form content."></textarea>
+                        <textarea name="description" value="{{ old('description') }}" class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-textarea focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray" rows="3" placeholder="Mô tả sản phẩm."></textarea>
                     </label>
                     <br>
                     <button type="submit" class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
-                        Thêm
+                        Thêm mới
                     </button>
                 </div>
             </form>

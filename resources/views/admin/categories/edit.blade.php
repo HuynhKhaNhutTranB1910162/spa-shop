@@ -1,12 +1,13 @@
 @extends('admin.layouts.app')
-@section('title', 'Sua danh muc')
-@section('content')
 
+@section('title', 'Caập nhật danh muc')
+
+@section('content')
     <main class="h-full pb-16 overflow-y-auto">
         <div class="container px-6 mx-auto grid">
 
             <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200" style="color:blueviolet">
-                Edit Category
+                Cập nhật danh mục
             </h2>
             <form action="{{ route('categories.update',['id'=>$categories->id]) }}" method="POST">
                 @csrf
@@ -20,13 +21,13 @@
                         <input name="name" value="{{ $categories->name }}" type="text" class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input" placeholder="Thêm tên danh mục" >
                         @error('name')
                         <span class="text-danger" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                             <strong>{{ $message }}</strong>
+                        </span>
                         @enderror
                     </label>
                     <br>
                     <button type="submit" class="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
-                        Thêm
+                        Thêm mới
                     </button>
                 </div>
             </form>
