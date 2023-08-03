@@ -75,7 +75,7 @@
                                         <div class="flex items-center text-sm">
                                             <div>
                                                 <p class="">
-                                                    {{ $product->original_price }}
+                                                    {{ CurrencyHelper::format($product->original_price) }}
                                                 </p>
                                             </div>
                                         </div>
@@ -84,7 +84,7 @@
                                         <div class="flex items-center text-sm">
                                             <div>
                                                 <p class="">
-                                                    {{ $product->selling_price }}
+                                                    {{ CurrencyHelper::format($product->selling_price) }}
                                                 </p>
                                             </div>
                                         </div>

@@ -8,7 +8,6 @@ use App\Http\Requests\Banner\UpdateBannerRequest;
 use App\Models\Banner;
 use App\Traits\ImageTrait;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class BannerController extends Controller
@@ -72,7 +71,7 @@ class BannerController extends Controller
 
         $banner->delete();
 
-        toastr()->success('Xóa danh mục thành công');
+        toastr()->success('Xóa banner thành công');
 
         return redirect('banners');
     }

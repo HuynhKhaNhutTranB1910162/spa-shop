@@ -7,6 +7,8 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\BannerController;
+use App\Http\Controllers\Admin\ServiceController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -65,10 +67,10 @@ Route::middleware(['auth', 'isAdmin'])->group(function (){
     Route::put('/update-banners/{id}',[BannerController::class, 'update'])->name('banners.update');
     Route::get('/delete-banners/{id}',[BannerController::class, 'destroy'])->name('banners.delete');
 
-    Route::get('/services',[BannerController::class, 'index'])->name('services');
-//    Route::get('/create-services',[BannerController::class, 'create'])->name('services.create');
-//    Route::post('/store-services',[BannerController::class, 'store'])->name('services.store');
-//    Route::get('/edit-services/{id}',[BannerController::class, 'edit'])->name('services.edit');
-//    Route::put('/update-services/{id}',[BannerController::class, 'update'])->name('services.update');
-//    Route::get('/delete-services/{id}',[BannerController::class, 'destroy'])->name('services.delete');
+    Route::get('/services',[ServiceController::class, 'index'])->name('services');
+    Route::get('/create-services',[ServiceController::class, 'create'])->name('services.create');
+    Route::post('/store-services',[ServiceController::class, 'store'])->name('services.store');
+    Route::get('/edit-services/{id}',[ServiceController::class, 'edit'])->name('services.edit');
+    Route::put('/update-services/{id}',[ServiceController::class, 'update'])->name('services.update');
+    Route::get('/delete-services/{id}',[ServiceController::class, 'destroy'])->name('services.delete');
 });

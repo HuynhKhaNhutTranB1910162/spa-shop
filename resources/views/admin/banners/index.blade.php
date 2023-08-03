@@ -82,7 +82,7 @@
                             </tbody>
                     </table>
 
-{{--                    {{ $categories->links('admin.pagination.index') }}--}}
+                    {{ $banners->links('admin.pagination.index') }}
                 </div>
             </div>
         </div>
