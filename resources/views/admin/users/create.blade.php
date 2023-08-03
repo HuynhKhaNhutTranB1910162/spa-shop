@@ -1,5 +1,5 @@
 @extends('admin.layouts.app')
-@section('title', 'Them nguoi dung')
+@section('title', 'Thêm người dùng')
 @section('content')
     <main class="h-full pb-16 overflow-y-auto">
         <div class="container px-6 mx-auto grid">

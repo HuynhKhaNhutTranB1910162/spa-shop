@@ -71,6 +71,6 @@ class CategoryController extends Controller
 
         toastr()->success('Xóa danh mục ' . $category->name  . ' thành công');
 
-        return redirect('categories')->with('status', 'Category deleted successfully');
+        return redirect('categories');
     }
 }

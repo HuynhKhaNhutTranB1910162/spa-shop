@@ -1,5 +1,5 @@
 @extends('admin.layouts.app')
-@section('title', 'Sua Sản Phẩm')
+@section('title', 'Cập nhật Sản Phẩm')
 @section('content')
 
     <main class="h-full pb-16 overflow-y-auto">
@@ -104,7 +104,7 @@
                     </label>
                     <label class="block mt-4 text-sm">
                         <div class="relative w-8 h-8 mr-3 rounded-full md:block">
-                            <img class="object-cover w-full h-full rounded-full" src="{{ asset('storage/' . $product->image) }}" loading="lazy" alt="{{ $product->name }}">
+                            <img class="h-auto max-w-lg rounded-lg" src="{{ asset('storage/' . $product->image) }}" loading="lazy" alt="{{ $product->name }}">
                             <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"></div>
                         </div>
                     </label>
